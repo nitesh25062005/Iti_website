@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Government ITI</title>
+  <link rel="stylesheet" href="css.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="header-container">
+        <img src="images/itilogo01.png" alt="ITI Logo Left" class="logo">
+        <h1>GOVERNMENT INDUSTRIAL TRAINING INSTITUTE, CHITTORGARH ( RAJASTHAN )</h1>
+        <img src="images/itilogo01.png" alt="ITI Logo Right" class="logo">
+      </div>
+      <nav>
+        <ul><u>
+          <li><a href="Home-GovtITI.html">Home</a></li>
+          <li><a href="About-GovtITI.html">About</a></li>
+          <li><a href="Courses-Details.html">Trades</a></li>
+          <li><a href="Study-Material.html">Study-Material</a></li>
+          <li><a href="Admission-GovtITI.html">Admission</a></li>
+          <li><a href="Contact-GovtITI.html">Contact</a></li>
+          <li><a href="https://maps.app.goo.gl/osaAHiYmFXVt89sb8">📍 View Location</a></li>
+</u>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="home">
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <img src="images/ITI.PNG" alt="Slide 1">
+        </div>
+        <div class="mySlides fade">
+          <img src="images/iti-prayer.png" alt="Slide 2">
+        </div>
+        <div class="mySlides fade">
+          <img src="images/batch.png" alt="Slide 3">
+        </div>
+          <div class="mySlides fade">          
+          <img src="images/iti02.png" alt="Slide 4">
+        </div>
+           <div class="mySlides fade">          
+          <img src="images/iti03.png" alt="Slide 5">
+        </div>
+   <div class="mySlides fade">          
+          <img src="images/iti04.png" alt="Slide 6">
+        </div>
+   <div class="mySlides fade">          
+          <img src="images/iti05.png" alt="Slide 7">
+        </div>
+
+      </div>
+    </section>
+
+ 
+
+    <footer>
+      <marquee behavior="scroll" direction="left" scrollamount="5">
+        © 2025 Industrial Training Institute, [Government Industrial Training Institute].  
+        Address: Ghatiyawali Road, Mohar Mangri, Chittorgarh (Rajasthan)- 312001 |
+        Phone: +91-********** |
+        E-Mail: iti_chittorgarh@yahoo.co.in |
+        All Rights Reserved.
+      </marquee>
+    </footer>
+  </div>
+
+  <script>
+    // Slideshow
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000);
+    }
+
+    // Popup show on page load
+    window.onload = function () {
+      document.getElementById("popupBox").style.display = "block";
+    };
+
+    // Close popup
+    document.querySelector(".close").onclick = function () {
+      document.getElementById("popupBox").style.display = "none";
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: white;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .welcome-container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 50px 40px;
+      border-radius: 20px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 650px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .welcome-container h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #ffeb3b, #ff9800);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .welcome-container p {
+      font-size: 1.2rem;
+      color: #f0f0f0;
+      margin-bottom: 30px;
+    }
+
+    .link-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      font-size: 1rem;
+      background: #ffca28;
+      border-radius: 25px;
+      color: #0d47a1;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+
+    .link-btn:hover {
+      background: #ffc107;
+      transform: scale(1.05);
+    }
+
+    .logo {
+      width: 140px;
+      margin-bottom: 20px;
+    }
+
+    .footer-credit {
+      margin-top: 30px;
+      font-size: 0.95rem;
+      color: #ccc;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .creator-names {
+      font-size: 1.3rem;
+      font-weight: bold;
+      background: linear-gradient(to right, #ffcc80, #ffb74d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-top: 5px;
+    }
+
+    @media (max-width: 600px) {
+      .welcome-container {
+        padding: 30px 20px;
+      }
+
+      .welcome-container h1 {
+        font-size: 2.3rem;
+      }
+
+      .welcome-container p {
+        font-size: 1rem;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome-container">
+    <img src="images/itilogo01.png" alt="ITI Logo" class="logo" />
+    <h1>Welcome to ITI</h1>
+    <p>Preparing youth for tomorrow with hands-on expertise and future-ready knowledge.</p>
+
+    <a href="Home-GovtITI.html" class="link-btn">Visit Our Website</a>
+
+    <div class="footer-credit">
+      <b>This Project Proudly Created By:</b>
+      <div class="creator-names">
+        ✨ Nitesh Kumawat ✨<br>
+        🌟 Aarti Darji 🌟
+      </div>
+    </div>
+  </div>
+</body>
+</html>

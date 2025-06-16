@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ITI Online Admission Form</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    h3 {
+      margin-top: 30px;
+      color: #0066cc;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .field {
+      margin-bottom: 10px;
+    }
+
+    .print-btn {
+      background-color: #28a745;
+    }
+
+    .print-btn:hover {
+      background-color: #1e7e34;
+    }
+
+    .section {
+      margin-top: 40px;
+      padding-top: 10px;
+      border-top: 2px solid #eee;
+    }
+
+    img {
+      margin-top: 10px;
+      border: 1px solid #aaa;
+      padding: 4px;
+      background: #fff;
+    }
+    table {
+  border: 1px solid #ccc;
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #333;
+  text-align: left;
+}
+
+td, th {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>ITI Online Admission Form</h2>
+  <form id="itiForm">
+
+    <h3>🔶 Personal Details:</h3>
+    <label>1. Full Name</label>
+    <input type="text" id="fullName" required>
+
+    <label>2. Father’s/Mother’s Name</label>
+    <input type="text" id="parentName" required>
+
+    <label>3. Date of Birth</label>
+    <input type="date" id="dob" required>
+
+    <label>4. Gender</label>
+    <select id="gender" required>
+      <option value="">-- Select --</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label>5. Category</label>
+    <select id="category" required>
+      <option value="">-- Select --</option>
+      <option value="General">General</option>
+      <option value="SC">SC</option>
+      <option value="ST">ST</option>
+      <option value="OBC">OBC</option>
+    </select>
+
+    <label>6. Domicile State</label>
+    <input type="text" id="stateResident" required>
+
+    <label>7. Religion</label>
+    <input type="text" id="religion" required>
+
+    <label>8. Marital Status</label>
+    <select id="maritalStatus" required>
+      <option value="">-- Select --</option>
+      <option value="Unmarried">Unmarried</option>
+      <option value="Married">Married</option>
+    </select>
+
+    <h3 class="section">🔶 Contact Details:</h3>
+    <label>1. Full Address</label>
+    <textarea id="address" required></textarea>
+
+    <label>2. District</label>
+    <input type="text" id="district" required>
+
+    <label>3. State</label>
+    <input type="text" id="state" required>
+
+    <label>4. PIN Code</label>
+    <input type="text" id="pincode" required>
+
+    <label>5. Mobile Number</label>
+    <input type="tel" id="mobile" required>
+
+    <label>6. Email ID</label>
+    <input type="email" id="email">
+
+    <h3 class="section">🔶 Educational Details:</h3>
+    <label>Class</label>
+    <select id="eduClass" required>
+      <option value="">-- Select Class --</option>
+      <option value="8th">8th</option>
+      <option value="10th">10th</option>
+    </select>
+
+    <label>Board Name</label>
+    <input type="text" id="boardName" required>
+
+    <label>School Name</label>
+    <input type="text" id="schoolName" required>
+
+    <label>Year of Passing</label>
+    <input type="text" id="passingYear" required>
+
+    <label>Marks / Percentage</label>
+    <input type="text" id="marks" required>
+
+    <h3 class="section">🔶 Preferred Trade:</h3>
+    <select id="trade" required>
+      <option value="">-- Select Trade --</option>
+      <option>Electrician</option>
+      <option>Fitter</option>
+      <option>Welder</option>
+      <option>Mechanic Diesel (MD)</option>
+      <option>Computer Operator And Programming Assistant (COPA)</option>
+      <option>Plumber</option>
+      <option>Wireman</option>
+      <option>Fire And Industrial Safety Management</option>
+      <option>Solar Technician</option>
+      <option>Draaughtsman Civil</option>
+      <option>RAC (refrigerator and Airconditioning Technician),</option>
+    </select>
+
+    <h3 class="section">🔶 Required Documents:</h3>
+    <label>1. Marksheet (Class 8th / 10th)</label>
+    <input type="file" id="marksheet" accept="image/*" required>
+
+    <label>3. Passport Size Photo</label>
+    <input type="file" id="photo" accept="image/*" required>
+
+    <label>4. Signature</label>
+    <input type="file" id="sign" accept="image/*" required>
+
+    <button type="submit">Submit Form</button>
+  </form>
+
+<div id="output" class="hidden">
+  <h3>✅ Submitted Details Preview:</h3>
+  <table style="width: 100%; border-collapse: collapse;" border="1" cellpadding="8">
+    <tr><th colspan="2">🔶 Personal Details</th></tr>
+    <tr><td>Full Name</td><td id="outFullName"></td></tr>
+    <tr><td>Parent Name</td><td id="outParentName"></td></tr>
+    <tr><td>Date of Birth</td><td id="outDOB"></td></tr>
+    <tr><td>Gender</td><td id="outGender"></td></tr>
+    <tr><td>Category</td><td id="outCategory"></td></tr>
+    <tr><td>Domicile State</td><td id="outDomicile"></td></tr>
+    <tr><td>Religion</td><td id="outReligion"></td></tr>
+    <tr><td>Marital Status</td><td id="outMarital"></td></tr>
+
+    <tr><th colspan="2">🔶 Contact Details</th></tr>
+    <tr><td>Address</td><td id="outAddress"></td></tr>
+    <tr><td>District</td><td id="outDistrict"></td></tr>
+    <tr><td>State</td><td id="outState"></td></tr>
+    <tr><td>PIN Code</td><td id="outPincode"></td></tr>
+    <tr><td>Mobile</td><td id="outMobile"></td></tr>
+    <tr><td>Email</td><td id="outEmail"></td></tr>
+
+    <tr><th colspan="2">🔶 Educational Details</th></tr>
+    <tr><td>Class</td><td id="outClass"></td></tr>
+    <tr><td>Board Name</td><td id="outBoard"></td></tr>
+    <tr><td>School Name</td><td id="outSchool"></td></tr>
+    <tr><td>Year of Passing</td><td id="outYear"></td></tr>
+    <tr><td>Marks / Percentage</td><td id="outMarks"></td></tr>
+
+    <tr><th colspan="2">🔶 Preferred Trade</th></tr>
+    <tr><td>Trade</td><td id="outTrade"></td></tr>
+
+    <tr><th colspan="2">🔶 Uploaded Documents</th></tr>
+    <tr><td>Marksheet</td><td><img id="outMarksheet" width="150"></td></tr>
+    <tr><td>Passport Size Photo</td><td><img id="outPhoto" width="120" height="140"></td></tr>
+    <tr><td>Signature</td><td><img id="outSign" width="150"></td></tr>
+  </table>
+
+  <button onclick="window.print()" class="print-btn">🖨️ Print / Save as PDF</button>
+  <button onclick="editform()" class="print-btn" 
+  style="background-color:#ffc107;
+  margin-top: 10px;">
+  Edit Form 
+</button>
+</div>
+
+
+<script>
+  const form = document.getElementById('itiForm');
+  const output = document.getElementById('output');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const getVal = id => document.getElementById(id).value;
+    const setText = (id, val) => document.getElementById(id).textContent = val;
+
+    setText('outFullName', getVal('fullName'));
+    setText('outParentName', getVal('parentName'));
+    setText('outDOB', getVal('dob'));
+    setText('outGender', getVal('gender'));
+    setText('outCategory', getVal('category'));
+    setText('outDomicile', getVal('stateResident'));
+    setText('outReligion', getVal('religion'));
+    setText('outMarital', getVal('maritalStatus'));
+
+    setText('outAddress', getVal('address'));
+    setText('outDistrict', getVal('district'));
+    setText('outState', getVal('state'));
+    setText('outPincode', getVal('pincode'));
+    setText('outMobile', getVal('mobile'));
+    setText('outEmail', getVal('email'));
+
+    setText('outClass', getVal('eduClass'));
+    setText('outBoard', getVal('boardName'));
+    setText('outSchool', getVal('schoolName'));
+    setText('outYear', getVal('passingYear'));
+    setText('outMarks', getVal('marks'));
+    setText('outTrade', getVal('trade'));
+
+    const previewImage = (inputId, imgId) => {
+      const file = document.getElementById(inputId).files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          document.getElementById(imgId).src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    };
+
+    previewImage('marksheet', 'outMarksheet');
+    previewImage('photo', 'outPhoto');
+    previewImage('sign', 'outSign');
+
+    form.classList.add('hidden');
+    output.classList.remove('hidden');
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Success!',
+      text: 'Your ITI Admission Form has been submitted successfully.',
+      confirmButtonText: 'OK',
+      confirmButtonColor: '#007bff',
+    });
+  });
+  function editform (){
+    document.getElementById('output').classList.add('hidden');
+    document.getElementById('itiForm').classList.remove('hidden');
+  }
+let formsubmitted = false;
+form.addEventListener('submit', function() {
+  formsubmitted=true;
+});
+ window.addEventListener('beforeunload', function(e) {
+  if (!formsubmitted) {
+    e.preventDefault()
+    e.returnValue = ''; 
+  }
+ })
+
+</script>
+
+</body>
+</html>

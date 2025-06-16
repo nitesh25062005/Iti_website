@@ -1,0 +1,231 @@
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    main {
+      flex: 1;
+      padding-bottom: 60px; /* To prevent content from hiding behind footer */
+    }
+    table {
+      width: 95%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    caption {
+      caption-side: top;
+      font-size: 24px;
+      font-weight: bold;
+      padding: 10px;
+      color: #333;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #007BFF;
+      color: #fff;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    /* ✅ Header */
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    header nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+    header nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .header-container h1 {
+      flex: 1;
+      text-align: center;
+      font-size: 22px;
+    }
+    .logo {
+      width: 150px;
+      height: auto;
+    }
+
+    /* ✅ Footer */
+    footer {
+      text-align: center;
+      padding: 10px 15px;
+      background-color: #004080;
+      color: white;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+    marquee {
+      white-space: nowrap;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <img src="images/itilogo01.png" alt="ITI Logo Left" class="logo">
+      <h1>GOVERNMENT INDUSTRIAL TRAINING INSTITUTE, CHITTORGARH ( RAJASTHAN )</h1>
+      <img src="images/itilogo01.png" alt="ITI Logo Right" class="logo">
+    </div>
+    <nav>
+      <ul><u>
+        <li><a href="Home-GovtITI.html">Home</a></li>
+        <li><a href="About-GovtITI.html">About</a></li>
+        <li><a href="Courses-Details.html">Trades</a></li>
+        <li><a href="Study-Material.html">Study-Material</a></li>
+        <li><a href="Admission-GovtITI.html">Admission</a></li>
+        <li><a href="Contact-GovtITI.html">Contact</a></li>
+        <li><a href="https://maps.app.goo.gl/osaAHiYmFXVt89sb8">📍 View Location</a></li>
+      </u>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <table>
+      <caption><u>ITI Trades Details</u></caption>
+      <thead>
+        <tr>
+          <th>Trade Name</th>
+          <th>Duration</th>
+          <th>Eligibility</th>
+          <th>Sector</th>
+          <th>Job Opportunities</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Electrician</td>
+          <td>2 Years</td>
+          <td>10th Pass</td>
+          <td>Electrical</td>
+          <td>Electrician, Lineman, Technician</td>
+        </tr>
+        <tr>
+          <td>Fitter</td>
+          <td>2 Years</td>
+          <td>10th Pass</td>
+          <td>Mechanical</td>
+          <td>Machine Fitter, Tool Technician</td>
+        </tr>
+        <tr>
+          <td>COPA (Computer Operator and Programming Assistant)</td>
+          <td>1 Year</td>
+          <td>10th Pass</td>
+          <td>IT & Computer</td>
+          <td>Data Entry, Office Assistant</td>
+        </tr>
+        <tr>
+          <td>RAC (Refrigeration and Air Conditioning Technician)</td>
+          <td>2 Years</td>
+          <td>10th Pass</td>
+          <td>Mechanical</td>
+          <td>AC Technician, Cooling System Technician</td>
+        </tr>
+        <tr>
+          <td>Wireman</td>
+          <td>2 Years</td>
+          <td>8th/10th Pass</td>
+          <td>Electrical</td>
+          <td>Wiring Technician, Maintenance</td>
+        </tr>
+        <tr>
+          <td>Mechanic Diesel</td>
+          <td>1 Year</td>
+          <td>10th Pass</td>
+          <td>Automotive</td>
+          <td>Diesel Mechanic, Workshop Technician</td>
+        </tr>
+        <tr>
+          <td>Plumber</td>
+          <td>1 Year</td>
+          <td>8th/10th Pass</td>
+          <td>Construction</td>
+          <td>Plumber, Maintenance Technician</td>
+        </tr>
+        <tr>
+          <td>Welder</td>
+          <td>1 Year</td>
+          <td>8th/10th Pass</td>
+          <td>Mechanical</td>
+          <td>Welder, Fabricator</td>
+        </tr>
+        <tr>
+          <td>Fire and Industrial Safety Management</td>
+          <td>1 Year</td>
+          <td>10th Pass</td>
+          <td>Safety</td>
+          <td>Fire Safety Officer, Industrial Safety Supervisor</td>
+        </tr>
+        <tr>
+          <td>Solar Technician</td>
+          <td>1 Year</td>
+          <td>10th Pass</td>
+          <td>Renewable Energy</td>
+          <td>Solar Panel Technician, Maintenance</td>
+        </tr>
+        <tr>
+          <td>Draftsman Civil</td>
+          <td>2 Years</td>
+          <td>10th Pass</td>
+          <td>Civil/Construction</td>
+          <td>CAD Operator, Civil Draftsman</td>
+        </tr>
+        <tr>
+          <td>CITS - Computer Software Application</td>
+          <td>1 Year</td>
+          <td>12th Pass + ITI/Equivalent</td>
+          <td>Computer</td>
+          <td>Software Trainer, Lab Assistant</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <marquee behavior="scroll" direction="left" scrollamount="5">
+      © 2025 Industrial Training Institute, [Government Industrial Training Institute].
+      Address: Ghatiyawali Road, Mohar Mangri, Chittorgarh (Rajasthan)- 312001 |
+      Phone: +91-********** |
+      E-Mail: iti_chittorgarh@yahoo.co.in |
+      All Rights Reserved.
+    </marquee>
+  </footer>
+</body>
+</html>
