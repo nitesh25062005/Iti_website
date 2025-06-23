@@ -272,13 +272,12 @@ td, th {
 
 
 <script>
-  const form = document.getElementById('itiForm');
-  const output = document.getElementById('output');
+const form = document.getElementById('itiForm');
+const output = document.getElementById('output');
 
 form.addEventListener('submit', function (e) {
   e.preventDefault();
 
-  // collect data
   const getVal = id => document.getElementById(id).value;
 
   const data = {
@@ -304,55 +303,60 @@ form.addEventListener('submit', function (e) {
     trade: getVal('trade')
   };
 
-  // send to Google Sheet
-  const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzuQWWTiZ3lUMKQm4SWHSSx7D8P0KeDIewmgSuq6GSVz1qc4O7wlCOYow9HFsWH8_pa/exec';
+  // Form preview
+  document.getElementById('outFullName').textContent = data.fullName;
+  document.getElementById('outParentName').textContent = data.parentName;
+  document.getElementById('outDOB').textContent = data.dob;
+  document.getElementById('outGender').textContent = data.gender;
+  document.getElementById('outCategory').textContent = data.category;
+  document.getElementById('outDomicile').textContent = data.stateResident;
+  document.getElementById('outReligion').textContent = data.religion;
+  document.getElementById('outMarital').textContent = data.maritalStatus;
 
-  fetch(googleScriptURL, {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
-  .then(response => response.json())
-  .then(res => {
-    console.log("✅ Form submitted to Google Sheet");
-  })
-  .catch(err => {
-    console.error("❌ Error submitting to Google Sheet:", err);
+  document.getElementById('outAddress').textContent = data.address;
+  document.getElementById('outDistrict').textContent = data.district;
+  document.getElementById('outState').textContent = data.state;
+  document.getElementById('outPincode').textContent = data.pincode;
+  document.getElementById('outMobile').textContent = data.mobile;
+  document.getElementById('outEmail').textContent = data.email;
+
+  document.getElementById('outClass').textContent = data.eduClass;
+  document.getElementById('outBoard').textContent = data.boardName;
+  document.getElementById('outSchool').textContent = data.schoolName;
+  document.getElementById('outYear').textContent = data.passingYear;
+  document.getElementById('outMarks').textContent = data.marks;
+  document.getElementById('outTrade').textContent = data.trade;
+
+  form.classList.add('hidden');
+  output.classList.remove('hidden');
+
+  Swal.fire({
+    icon: 'success',
+    title: 'Success!',
+    text: 'Your ITI Admission Form has been submitted successfully.',
+    confirmButtonText: 'OK',
+    confirmButtonColor: '#007bff',
   });
-
-  // show preview + Swal.fire (you already have this)
 });
 
+function editform() {
+  document.getElementById('output').classList.add('hidden');
+  document.getElementById('itiForm').classList.remove('hidden');
+}
 
-// ✅ Alert below this
-Swal.fire({
-  icon: 'success',
-  title: 'Success!',
-  text: 'Your ITI Admission Form has been submitted successfully.',
-  confirmButtonText: 'OK',
-  confirmButtonColor: '#007bff',
-});
-
-
-  });
-  function editform (){
-    document.getElementById('output').classList.add('hidden');
-    document.getElementById('itiForm').classList.remove('hidden');
-  }
+// Prevent accidental closing
 let formsubmitted = false;
-form.addEventListener('submit', function() {
-  formsubmitted=true;
+form.addEventListener('submit', function () {
+  formsubmitted = true;
 });
- window.addEventListener('beforeunload', function(e) {
+window.addEventListener('beforeunload', function (e) {
   if (!formsubmitted) {
-    e.preventDefault()
-    e.returnValue = ''; 
+    e.preventDefault();
+    e.returnValue = '';
   }
- })
-
+});
 </script>
+
 
 </body>
 </html>
