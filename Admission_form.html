@@ -321,6 +321,51 @@ td, th {
 
     form.classList.add('hidden');
     output.classList.remove('hidden');
+// 👇 Send form data to Google Sheet
+const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzuQWWTiZ3lUMKQm4SWHSSx7D8P0KeDIewmgSuq6GSVz1qc4O7wlCOYow9HFsWH8_pa/exec';  // 🔁 Replace with your own URL
+
+const data = {
+  fullName: getVal('fullName'),
+  parentName: getVal('parentName'),
+  dob: getVal('dob'),
+  gender: getVal('gender'),
+  category: getVal('category'),
+  stateResident: getVal('stateResident'),
+  religion: getVal('religion'),
+  maritalStatus: getVal('maritalStatus'),
+  address: getVal('address'),
+  district: getVal('district'),
+  state: getVal('state'),
+  pincode: getVal('pincode'),
+  mobile: getVal('mobile'),
+  email: getVal('email'),
+  eduClass: getVal('eduClass'),
+  boardName: getVal('boardName'),
+  schoolName: getVal('schoolName'),
+  passingYear: getVal('passingYear'),
+  marks: getVal('marks'),
+  trade: getVal('trade')
+};
+
+fetch(googleScriptURL, {
+  method: "POST",
+  body: JSON.stringify(data),
+  headers: {
+    "Content-Type": "application/json"
+  }
+})
+.then(response => response.json())
+.then(res => console.log("✅ Form submitted to Google Sheet"))
+.catch(err => console.error("❌ Error submitting to Google Sheet:", err));
+
+// ✅ Alert below this
+Swal.fire({
+  icon: 'success',
+  title: 'Success!',
+  text: 'Your ITI Admission Form has been submitted successfully.',
+  confirmButtonText: 'OK',
+  confirmButtonColor: '#007bff',
+});
 
     Swal.fire({
       icon: 'success',
