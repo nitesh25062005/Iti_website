@@ -272,91 +272,80 @@ td, th {
 
 
 <script>
-const form = document.getElementById('itiForm');
-const output = document.getElementById('output');
+  const form = document.getElementById('itiForm');
+  const output = document.getElementById('output');
 
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-
-  const getVal = id => document.getElementById(id).value;
-
-  const data = {
-    fullName: getVal('fullName'),
-    parentName: getVal('parentName'),
-    dob: getVal('dob'),
-    gender: getVal('gender'),
-    category: getVal('category'),
-    stateResident: getVal('stateResident'),
-    religion: getVal('religion'),
-    maritalStatus: getVal('maritalStatus'),
-    address: getVal('address'),
-    district: getVal('district'),
-    state: getVal('state'),
-    pincode: getVal('pincode'),
-    mobile: getVal('mobile'),
-    email: getVal('email'),
-    eduClass: getVal('eduClass'),
-    boardName: getVal('boardName'),
-    schoolName: getVal('schoolName'),
-    passingYear: getVal('passingYear'),
-    marks: getVal('marks'),
-    trade: getVal('trade')
-  };
-
-  // Form preview
-  document.getElementById('outFullName').textContent = data.fullName;
-  document.getElementById('outParentName').textContent = data.parentName;
-  document.getElementById('outDOB').textContent = data.dob;
-  document.getElementById('outGender').textContent = data.gender;
-  document.getElementById('outCategory').textContent = data.category;
-  document.getElementById('outDomicile').textContent = data.stateResident;
-  document.getElementById('outReligion').textContent = data.religion;
-  document.getElementById('outMarital').textContent = data.maritalStatus;
-
-  document.getElementById('outAddress').textContent = data.address;
-  document.getElementById('outDistrict').textContent = data.district;
-  document.getElementById('outState').textContent = data.state;
-  document.getElementById('outPincode').textContent = data.pincode;
-  document.getElementById('outMobile').textContent = data.mobile;
-  document.getElementById('outEmail').textContent = data.email;
-
-  document.getElementById('outClass').textContent = data.eduClass;
-  document.getElementById('outBoard').textContent = data.boardName;
-  document.getElementById('outSchool').textContent = data.schoolName;
-  document.getElementById('outYear').textContent = data.passingYear;
-  document.getElementById('outMarks').textContent = data.marks;
-  document.getElementById('outTrade').textContent = data.trade;
-
-  form.classList.add('hidden');
-  output.classList.remove('hidden');
-
-  Swal.fire({
-    icon: 'success',
-    title: 'Success!',
-    text: 'Your ITI Admission Form has been submitted successfully.',
-    confirmButtonText: 'OK',
-    confirmButtonColor: '#007bff',
-  });
-});
-
-function editform() {
-  document.getElementById('output').classList.add('hidden');
-  document.getElementById('itiForm').classList.remove('hidden');
-}
-
-// Prevent accidental closing
-let formsubmitted = false;
-form.addEventListener('submit', function () {
-  formsubmitted = true;
-});
-window.addEventListener('beforeunload', function (e) {
-  if (!formsubmitted) {
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
-    e.returnValue = '';
-  }
-});
-</script>
 
+    const getVal = id => document.getElementById(id).value;
+    const setText = (id, val) => document.getElementById(id).textContent = val;
+
+    setText('outFullName', getVal('fullName'));
+    setText('outParentName', getVal('parentName'));
+    setText('outDOB', getVal('dob'));
+    setText('outGender', getVal('gender'));
+    setText('outCategory', getVal('category'));
+    setText('outDomicile', getVal('stateResident'));
+    setText('outReligion', getVal('religion'));
+    setText('outMarital', getVal('maritalStatus'));
+
+    setText('outAddress', getVal('address'));
+    setText('outDistrict', getVal('district'));
+    setText('outState', getVal('state'));
+    setText('outPincode', getVal('pincode'));
+    setText('outMobile', getVal('mobile'));
+    setText('outEmail', getVal('email'));
+
+    setText('outClass', getVal('eduClass'));
+    setText('outBoard', getVal('boardName'));
+    setText('outSchool', getVal('schoolName'));
+    setText('outYear', getVal('passingYear'));
+    setText('outMarks', getVal('marks'));
+    setText('outTrade', getVal('trade'));
+
+    const previewImage = (inputId, imgId) => {
+      const file = document.getElementById(inputId).files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          document.getElementById(imgId).src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    };
+
+    previewImage('marksheet', 'outMarksheet');
+    previewImage('photo', 'outPhoto');
+    previewImage('sign', 'outSign');
+
+    form.classList.add('hidden');
+    output.classList.remove('hidden');
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Success!',
+      text: 'Your ITI Admission Form has been submitted successfully.',
+      confirmButtonText: 'OK',
+      confirmButtonColor: '#007bff',
+    });
+  });
+  function editform (){
+    document.getElementById('output').classList.add('hidden');
+    document.getElementById('itiForm').classList.remove('hidden');
+  }
+let formsubmitted = false;
+form.addEventListener('submit', function() {
+  formsubmitted=true;
+});
+ window.addEventListener('beforeunload', function(e) {
+  if (!formsubmitted) {
+    e.preventDefault()
+    e.returnValue = ''; 
+  }
+ })
+
+</script>
 
 </body>
 </html>
