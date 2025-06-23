@@ -275,88 +275,56 @@ td, th {
   const form = document.getElementById('itiForm');
   const output = document.getElementById('output');
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
 
-    const getVal = id => document.getElementById(id).value;
-    const setText = (id, val) => document.getElementById(id).textContent = val;
+  // collect data
+  const getVal = id => document.getElementById(id).value;
 
-    setText('outFullName', getVal('fullName'));
-    setText('outParentName', getVal('parentName'));
-    setText('outDOB', getVal('dob'));
-    setText('outGender', getVal('gender'));
-    setText('outCategory', getVal('category'));
-    setText('outDomicile', getVal('stateResident'));
-    setText('outReligion', getVal('religion'));
-    setText('outMarital', getVal('maritalStatus'));
+  const data = {
+    fullName: getVal('fullName'),
+    parentName: getVal('parentName'),
+    dob: getVal('dob'),
+    gender: getVal('gender'),
+    category: getVal('category'),
+    stateResident: getVal('stateResident'),
+    religion: getVal('religion'),
+    maritalStatus: getVal('maritalStatus'),
+    address: getVal('address'),
+    district: getVal('district'),
+    state: getVal('state'),
+    pincode: getVal('pincode'),
+    mobile: getVal('mobile'),
+    email: getVal('email'),
+    eduClass: getVal('eduClass'),
+    boardName: getVal('boardName'),
+    schoolName: getVal('schoolName'),
+    passingYear: getVal('passingYear'),
+    marks: getVal('marks'),
+    trade: getVal('trade')
+  };
 
-    setText('outAddress', getVal('address'));
-    setText('outDistrict', getVal('district'));
-    setText('outState', getVal('state'));
-    setText('outPincode', getVal('pincode'));
-    setText('outMobile', getVal('mobile'));
-    setText('outEmail', getVal('email'));
+  // send to Google Sheet
+  const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzuQWWTiZ3lUMKQm4SWHSSx7D8P0KeDIewmgSuq6GSVz1qc4O7wlCOYow9HFsWH8_pa/exec';
 
-    setText('outClass', getVal('eduClass'));
-    setText('outBoard', getVal('boardName'));
-    setText('outSchool', getVal('schoolName'));
-    setText('outYear', getVal('passingYear'));
-    setText('outMarks', getVal('marks'));
-    setText('outTrade', getVal('trade'));
+  fetch(googleScriptURL, {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(response => response.json())
+  .then(res => {
+    console.log("✅ Form submitted to Google Sheet");
+  })
+  .catch(err => {
+    console.error("❌ Error submitting to Google Sheet:", err);
+  });
 
-    const previewImage = (inputId, imgId) => {
-      const file = document.getElementById(inputId).files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          document.getElementById(imgId).src = e.target.result;
-        };
-        reader.readAsDataURL(file);
-      }
-    };
+  // show preview + Swal.fire (you already have this)
+});
 
-    previewImage('marksheet', 'outMarksheet');
-    previewImage('photo', 'outPhoto');
-    previewImage('sign', 'outSign');
-
-    form.classList.add('hidden');
-    output.classList.remove('hidden');
-// 👇 Send form data to Google Sheet
-const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzuQWWTiZ3lUMKQm4SWHSSx7D8P0KeDIewmgSuq6GSVz1qc4O7wlCOYow9HFsWH8_pa/exec';  // 🔁 Replace with your own URL
-
-const data = {
-  fullName: getVal('fullName'),
-  parentName: getVal('parentName'),
-  dob: getVal('dob'),
-  gender: getVal('gender'),
-  category: getVal('category'),
-  stateResident: getVal('stateResident'),
-  religion: getVal('religion'),
-  maritalStatus: getVal('maritalStatus'),
-  address: getVal('address'),
-  district: getVal('district'),
-  state: getVal('state'),
-  pincode: getVal('pincode'),
-  mobile: getVal('mobile'),
-  email: getVal('email'),
-  eduClass: getVal('eduClass'),
-  boardName: getVal('boardName'),
-  schoolName: getVal('schoolName'),
-  passingYear: getVal('passingYear'),
-  marks: getVal('marks'),
-  trade: getVal('trade')
-};
-
-fetch(googleScriptURL, {
-  method: "POST",
-  body: JSON.stringify(data),
-  headers: {
-    "Content-Type": "application/json"
-  }
-})
-.then(response => response.json())
-.then(res => console.log("✅ Form submitted to Google Sheet"))
-.catch(err => console.error("❌ Error submitting to Google Sheet:", err));
 
 // ✅ Alert below this
 Swal.fire({
@@ -367,13 +335,7 @@ Swal.fire({
   confirmButtonColor: '#007bff',
 });
 
-    Swal.fire({
-      icon: 'success',
-      title: 'Success!',
-      text: 'Your ITI Admission Form has been submitted successfully.',
-      confirmButtonText: 'OK',
-      confirmButtonColor: '#007bff',
-    });
+
   });
   function editform (){
     document.getElementById('output').classList.add('hidden');
