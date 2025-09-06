@@ -83,7 +83,7 @@ header nav ul li a {
   position: relative;
   max-width: 100%;
   margin: 0 auto;
-  height: auto;
+  height: 178px;
   overflow: hidden;
 }
 
@@ -104,7 +104,7 @@ header nav ul li a {
 
 .mySlides img {
   width: 100%;
-  height: auto;
+  height: 176px;
   object-fit: cover;
   display: block;
 }
@@ -115,4 +115,5 @@ header nav ul li a {
   from {opacity: 0;}
   to {opacity: 1;}
 }
+
 
